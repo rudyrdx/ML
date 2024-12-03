@@ -1,0 +1,4 @@
+Epoch 1, Loss: 2.7531, Accuracy: 0.8124, Precision: 0.8250, Recall: 0.8100, F1-Score: 0.8174
+Epoch 2, Loss: 2.1547, Accuracy: 0.8546, Precision: 0.8600, Recall: 0.8500, F1-Score: 0.8550
+Epoch 3, Loss: 1.7893, Accuracy: 0.8821, Precision: 0.8850, Recall: 0.8800, F1-Score: 0.8825
+...
