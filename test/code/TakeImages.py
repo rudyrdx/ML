@@ -11,26 +11,26 @@ cap.set(cv2.CAP_PROP_FPS, 30)
 # Automatically adjust exposure
 cap.set(cv2.CAP_PROP_AUTO_EXPOSURE, 0.75)  # Enable auto exposure
 
-# Function to improve image processing
-def improve_image(image):
-    # Convert to grayscale
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # Apply histogram equalization
-    equalized = cv2.equalizeHist(gray)
-    # Convert back to BGR
-    improved = cv2.cvtColor(equalized, cv2.COLOR_GRAY2BGR)
-    return improved
+# # Function to improve image processing
+# def improve_image(image):
+#     # Convert to grayscale
+#     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#     # Apply histogram equalization
+#     equalized = cv2.equalizeHist(gray)
+#     # Convert back to BGR
+#     improved = cv2.cvtColor(equalized, cv2.COLOR_GRAY2BGR)
+#     return improved
 
-def deflickr(image):
-    # Convert to grayscale
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    # Apply a Gaussian blur to reduce noise and improve flicker removal
-    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-    # Apply adaptive thresholding to remove flicker
-    deflickered = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
-    # Convert back to BGR
-    deflickered_bgr = cv2.cvtColor(deflickered, cv2.COLOR_GRAY2BGR)
-    return deflickered_bgr
+# def deflickr(image):
+#     # Convert to grayscale
+#     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+#     # Apply a Gaussian blur to reduce noise and improve flicker removal
+#     blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+#     # Apply adaptive thresholding to remove flicker
+#     deflickered = cv2.adaptiveThreshold(blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+#     # Convert back to BGR
+#     deflickered_bgr = cv2.cvtColor(deflickered, cv2.COLOR_GRAY2BGR)
+#     return deflickered_bgr
 
 def decode(frame):
     left = frame[:, 64:1280 + 48]
@@ -47,8 +47,8 @@ for i in range(40):
         
         # Decode the frame into left and right images
         left, right = decode(frame)
-        left = improve_image(left)
-        right = improve_image(right)
+        # left = improve_image(left)
+        # right = improve_image(right)
         # Downsample the frames
         left_resized = cv2.resize(left, (640, 400))  # Resize to half the original size
         right_resized = cv2.resize(right, (640, 400))  # Resize to half the original size
